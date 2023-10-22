@@ -1,26 +1,18 @@
 #!/usr/bin/env python3
+"""
+Contains definition of index_range helper function
+"""
+from typing import Tuple
 
 
-def index_range(page: int, page_size: int) -> tuple:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
-    Return a tuple of the start and end
-    indexes based on page and page_size.
+     Return a tuple of the start and
+     end indexes based on page and page_size.
     """
-    # Calculate the start index (0-based)
-    start = (page - 1) * page_size
-
-    # Calculate the end index
-    end = start + page_size
+    start, end = 0, 0
+    for i in range(page):
+        start = end
+        end += page_size
 
     return (start, end)
-
-
-# Testing the function
-if __name__ == "__main__":
-    res = index_range(1, 7)
-    print(type(res))
-    print(res)
-
-    res = index_range(page=3, page_size=15)
-    print(type(res))
-    print(res)
