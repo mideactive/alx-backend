@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""flask app"""
+"""
+Flask app
+"""
 from flask import (
-        Flask,
-        render_template,
-        request,
-        g
+    Flask,
+    render_template,
+    request,
+    g
 )
 from flask_babel import Babel
 
@@ -18,10 +20,12 @@ users = {
 
 
 class Config(object):
-    """babel config"""
+    """
+    Configuration for Babel
+    """
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFUALT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC",
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
 app = Flask(__name__)
@@ -65,7 +69,7 @@ def index() -> str:
     """
     Handles / route
     """
-    return render_template('5-index.html', user=g.user)
+    return render_template('5-index.html')
 
 
 if __name__ == "__main__":
