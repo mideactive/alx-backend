@@ -15,15 +15,12 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = "UFC"
 
 
-
 app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
 
-
 app.jinja_env.autoescape = True
-
 
 
 @babel.localeselector
